@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: black;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    nav {
+      width: 100%;
+      padding: 20px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      color: purple;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+
+    nav ul li a {
+      color: purple;
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: bold;
+      transition: .3s;
+    }
+
+    nav ul li a:hover {
+      color: white;
+    }
+
+    section {
+      min-height: 100vh;
+      padding: 120px 8%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .left {
+      width: 50%;
+    }
+
+    .left h1 {
+      font-size: 65px;
+      margin-bottom: 15px;
+    }
+
+    .left p {
+      font-size: 20px;
+      line-height: 30px;
+      color: #d1d1d1;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 25px;
+      margin-right: 10px;
+      padding: 14px 35px;
+      background: purple;
+      color: white;
+      text-decoration: none;
+      border-radius: 40px;
+      font-weight: bold;
+      transition: .3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+
+    .right {
+      width: 40%;
+    }
+
+    .container {
+      width: 100%;
+      background: rgba(128, 0, 128, .15);
+      border: 1px solid purple;
+      border-radius: 25px;
+      padding: 50px;
+      box-shadow: 0 0 25px rgba(128, 0, 128, .4);
+    }
+
+    .title {
+      text-align: center;
+      font-size: 45px;
+      color: purple;
+      margin-bottom: 30px;
+    }
+
+    .about-text {
+      text-align: center;
+      font-size: 24px;
+      line-height: 40px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, .05);
+      padding: 25px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, .1);
+      transition: .3s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    .skill {
+      margin-bottom: 20px;
+    }
+
+    .skill p {
+      margin-bottom: 8px;
+    }
+
+    .bar {
+      width: 100%;
+      height: 12px;
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .fill {
+      height: 100%;
+      background: purple;
+    }
+
+    .contact-box input,
+    .contact-box textarea {
+      width: 100%;
+      padding: 15px;
+      margin: 10px 0;
+      border: none;
+      outline: none;
+      border-radius: 12px;
+      font-size: 18px;
+    }
+
+    .contact-box button {
+      padding: 14px 35px;
+      border: none;
+      border-radius: 40px;
+      background: white;
+      color: purple;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #aaa;
+    }
+
+    @media(max-width:900px) {
+
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .left,
+      .right {
+        width: 100%;
+      }
+
+      nav ul {
+        display: none;
+      }
+
+      .left h1 {
+        font-size: 45px;
+      }
+
+      .left p {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="logo">
+      <img src="a.jpeg" width="50" height="50">
+      <h2>PORTFOLIO</h2>
+    </div>
+
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero" id="home">
+    <div class="left">
+      <h1>Saraswati Dubey</h1>
+
+      <p>
+        Hello! I'm Saraswati Dubey, an aspiring Software Engineer with a strong interest in web development,
+        problem-solving, and modern technologies. I love turning ideas into interactive websites and applications.
+      </p>
+
+      <a href="#projects" class="btn">Explore My Work</a>
+      <a href="resume.pdf" download class="btn">Download Resume</a>
+    </div>
+
+    <div class="right"></div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <h1 class="title">About Me</h1>
+      <p class="about-text">
+        Learning, building, and improving every day to become a skilled software engineer.
+      </p>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <h1 class="title">Projects</h1>
+
+      <div class="cards">
+
+        <div class="card">
+          <h2>Portfolio Website</h2>
+          <p>Modern animated portfolio with Three.js background effects.</p>
+        </div>
+
+        <div class="card">
+          <h2>E-Commerce Website</h2>
+          <p>Responsive shopping website with cart and payment UI.</p>
+        </div>
+
+        <div class="card">
+          <h2>Snake Game</h2>
+          <p>A fun snake game with score tracking and smooth controls.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container">
+      <h1 class="title">Skills</h1>
+
+      <div class="skill">
+        <p>HTML</p>
+        <div class="bar">
+          <div class="fill" style="width:95%"></div>
+        </div>
+      </div>
+
+      <div class="skill">
+        <p>CSS</p>
+        <div class="bar">
+          <div class="fill" style="width:90%"></div>
+        </div>
+      </div>
+
+      <div class="skill">
+        <p>JavaScript</p>
+        <div class="bar">
+          <div class="fill" style="width:85%"></div>
+        </div>
+      </div>
+
+      <div class="skill">
+        <p>Three.js</p>
+        <div class="bar">
+          <div class="fill" style="width:50%"></div>
+        </div>
+      </div>
+
+      <div class="skill">
+        <p>Git</p>
+        <div class="bar">
+          <div class="fill" style="width:85%"></div>
+        </div>
+      </div>
+
+      <div class="skill">
+        <p>MySQL</p>
+        <div class="bar">
+          <div class="fill" style="width:75%"></div>
+        </div>
+      </div>
+
+      <div class="skill">
+        <p>DBMS</p>
+        <div class="bar">
+          <div class="fill" style="width:95%"></div>
+        </div>
+      </div>
+
+      <div class="skill">
+        <p>Computer Network</p>
+        <div class="bar">
+          <div class="fill" style="width:65%"></div>
+        </div>
+      </div>
+
+      <div class="skill">
+        <p>DSA</p>
+        <div class="bar">
+          <div class="fill" style="width:55%"></div>
+        </div>
+      </div>
+
+      <div class="skill">
+        <p>R Programming</p>
+        <div class="bar">
+          <div class="fill" style="width:75%"></div>
+        </div>
+      </div>
+
+      <div class="skill">
+        <p>Domain</p>
+        <div class="bar">
+          <div class="fill" style="width:50%"></div>
+        </div>
+      </div>
+
+      <div class="skill">
+        <p>C++</p>
+        <div class="bar">
+          <div class="fill" style="width:50%"></div>
+        </div>
+      </div>
+
+      <div class="skill">
+        <p>C</p>
+        <div class="bar">
+          <div class="fill" style="width:55%"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+
+      <h1 class="title">Contact Me</h1>
+
+      <div class="contact-box">
+        <input type="text" placeholder="Your Name">
+        <input type="email" placeholder="Your Email">
+        <textarea rows="6" placeholder="Your Message"></textarea>
+        <button>Send Message</button>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Saraswati Portfolio | All Rights Reserved
+  </footer>
+
+  <script type="module">
+    import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.158/build/three.module.js';
+
+    const scene = new THREE.Scene();
+
+    const camera = new THREE.PerspectiveCamera(
+      75,
+      window.innerWidth / window.innerHeight,
+      0.1,
+      1000
+    );
+
+    const renderer = new THREE.WebGLRenderer({
+      antialias: true,
+      alpha: true
+    });
+
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    const geometry = new THREE.TorusKnotGeometry(1, 0.35, 200, 32);
+
+    const material = new THREE.MeshBasicMaterial({
+      color: 0x800080,
+      wireframe: true
+    });
+
+    const torus = new THREE.Mesh(geometry, material);
+    scene.add(torus);
+
+    camera.position.z = 4;
+
+    const particlesGeometry = new THREE.BufferGeometry();
+    const particlesCount = 3000;
+    const posArray = new Float32Array(particlesCount * 3);
+
+    for (let i = 0; i < particlesCount * 3; i++) {
+      posArray[i] = (Math.random() - 0.5) * 15;
+    }
+
+    particlesGeometry.setAttribute(
+      'position',
+      new THREE.BufferAttribute(posArray, 3)
+    );
+
+    const particlesMaterial = new THREE.PointsMaterial({
+      size: 0.015,
+      color: 0xffffff
+    });
+
+    const particlesMesh = new THREE.Points(
+      particlesGeometry,
+      particlesMaterial
+    );
+
+    scene.add(particlesMesh);
+
+    document.addEventListener('mousemove', (e) => {
+      let mouseX = e.clientX / window.innerWidth;
+      let mouseY = e.clientY / window.innerHeight;
+
+      torus.rotation.y = mouseX * 3;
+      torus.rotation.x = mouseY * 3;
+    });
+
+    function animate() {
+      requestAnimationFrame(animate);
+
+      torus.rotation.z += 0.003;
+      particlesMesh.rotation.y += 0.0008;
+
+      renderer.render(scene, camera);
+    }
+
+    animate();
+
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  </script>
+
+</body>
+
+</html>
